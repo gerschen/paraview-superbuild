@@ -1,0 +1,61 @@
+diff --git a/src/Plugins/MEDReader/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx b/src/Plugins/MEDReader/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx
+index 1b93ae4..a9156d1 100644
+--- a/src/Plugins/MEDReader/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx
++++ b/src/Plugins/MEDReader/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx
+@@ -47,7 +47,7 @@
+ #include "vtkDoubleArray.h"
+ #include "vtkIntArray.h"
+ #include "vtkLongArray.h"
+-#ifdef WIN32
++#if defined(WIN32) || defined(__APPLE__)
+ #include "vtkLongLongArray.h"
+ #endif
+ #include "vtkFloatArray.h"
+@@ -224,14 +224,14 @@ public:
+ };
+ 
+ template<>
+-#ifdef WIN32
++#if defined(WIN32) || defined(__APPLE__)
+ class MEDFileVTKTraits<long long>
+ #else
+ class MEDFileVTKTraits<long>
+ #endif
+ {
+ public:
+-#ifdef WIN32
++#if defined(WIN32) || defined(__APPLE__)
+   typedef vtkLongLongArray VtkType;
+ #else
+   typedef vtkLongArray VtkType;
+diff --git a/src/Plugins/MEDReader/plugin/MEDReaderIO/VTKMEDTraits.hxx b/src/Plugins/MEDReader/plugin/MEDReaderIO/VTKMEDTraits.hxx
+index e34c34d..28ea86b 100644
+--- a/src/Plugins/MEDReader/plugin/MEDReaderIO/VTKMEDTraits.hxx
++++ b/src/Plugins/MEDReader/plugin/MEDReaderIO/VTKMEDTraits.hxx
+@@ -23,7 +23,7 @@
+ 
+ class vtkIntArray;
+ class vtkLongArray;
+-#ifdef WIN32
++#if defined(WIN32) || defined(__APPLE__)
+ class vtkLongLongArray;
+ #endif
+ class vtkFloatArray;
+@@ -46,7 +46,7 @@ public:
+ };
+ 
+ template<>
+-#ifdef WIN32
++#if defined(WIN32) || defined(__APPLE__)
+ class MEDFileVTKTraits<long long>
+ #else 
+ class MEDFileVTKTraits<long>
+@@ -54,7 +54,7 @@ class MEDFileVTKTraits<long>
+ #
+ {
+ public:
+-#ifdef WIN32
++#if defined(WIN32) || defined(__APPLE__)
+   typedef vtkLongLongArray VtkType;
+ #else
+   typedef vtkLongArray VtkType;
