@@ -399,6 +399,11 @@ superbuild_add_project(paraview
 
     ${PARAVIEW_EXTRA_CMAKE_ARGUMENTS})
 
+if (visitbridge_enabled)
+  superbuild_apply_patch(paraview lata
+    "Add LATA reader to visitbridge")
+endif ()
+
 if (paraview_SOURCE_SELECTION STREQUAL "5.3.0")
   superbuild_apply_patch(paraview fix-benchmarks
     "Fix various issues with the shipped benchmark scripts")
