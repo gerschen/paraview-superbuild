@@ -48,3 +48,6 @@ superbuild_apply_patch(medreader fix-vtkStdString-usage
 
 superbuild_apply_patch(medreader pqTreeWidget-margins-api
   "Fix pqTreeWidget deprecated margin API usage")
+
+superbuild_apply_patch(medreader macos-compat
+  "MacOS compatibility")
