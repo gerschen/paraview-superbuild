@@ -261,7 +261,7 @@ function (superbuild_find_projects var)
       zspace)
   endif ()
 
-  if (WIN32 OR (UNIX AND NOT APPLE))
+  if (WIN32 OR UNIX)
     list(APPEND projects
       # The med stack does not support MacOS yet
       medconfiguration

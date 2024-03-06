@@ -32,3 +32,6 @@ superbuild_apply_patch(medreader remove-custom-install
 
 superbuild_apply_patch(medreader add-missing-VTK-module-depends
   "Add a missing VTK module dependency")
+
+superbuild_apply_patch(medreader macos-compat
+  "MacOS compatibility")
