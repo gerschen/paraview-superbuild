@@ -1,7 +1,18 @@
-diff --git a/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkELNOFilter.h b/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkELNOFilter.h
-index b39ccdf..f7ace08 100644
---- a/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkELNOFilter.h
-+++ b/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkELNOFilter.h
+From 31af8e665577ccd1ab2927e9669da5802eb6b426 Mon Sep 17 00:00:00 2001
+From: Antoine Gerschenfeld <antoine.gerschenfeld@cea.fr>
+Date: Fri, 7 Mar 2025 14:44:51 +0100
+Subject: [PATCH 4/7] Fix quadrature datasets
+
+---
+ plugin/MEDReaderIO/vtkELNOFilter.h                     | 3 +++
+ plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx | 5 +++--
+ plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h   | 2 +-
+ 3 files changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/plugin/MEDReaderIO/vtkELNOFilter.h b/plugin/MEDReaderIO/vtkELNOFilter.h
+index d03ef9d..0af4298 100644
+--- a/plugin/MEDReaderIO/vtkELNOFilter.h
++++ b/plugin/MEDReaderIO/vtkELNOFilter.h
 @@ -22,6 +22,9 @@
  
  #include "vtkQuadraturePointsGenerator.h"
@@ -12,10 +23,10 @@ index b39ccdf..f7ace08 100644
  class VTK_EXPORT vtkELNOFilter: public vtkQuadraturePointsGenerator
  {
  public:
-diff --git a/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx b/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx
-index 307004c..33a4275 100644
---- a/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx
-+++ b/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx
+diff --git a/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx b/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx
+index cbcecc5..32c24c5 100644
+--- a/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx
++++ b/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx
 @@ -26,7 +26,8 @@
  #include <vtkObjectFactory.h>
  #include <vtkInformation.h>
@@ -35,10 +46,10 @@ index 307004c..33a4275 100644
    // Get the output.
    tmpDataObj = output->GetInformationObject(0)->Get(vtkDataObject::DATA_OBJECT());
    vtkPolyData *pdOut = vtkPolyData::SafeDownCast(tmpDataObj);
-diff --git a/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h b/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h
-index 6973cf6..06e78c1 100644
---- a/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h
-+++ b/src/Plugins/MEDReader/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h
+diff --git a/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h b/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h
+index 3c15630..3fbb810 100644
+--- a/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h
++++ b/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h
 @@ -35,7 +35,7 @@ public:
  
  protected:
@@ -48,3 +59,6 @@ index 6973cf6..06e78c1 100644
    vtkMEDQuadraturePointsGenerator();
    virtual ~vtkMEDQuadraturePointsGenerator();
  private:
+-- 
+2.48.1
+

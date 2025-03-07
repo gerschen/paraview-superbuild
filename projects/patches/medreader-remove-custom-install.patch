@@ -1,17 +1,17 @@
-From 48d8ffb6b383f47b32eb908dde03f1ccdb0a97dc Mon Sep 17 00:00:00 2001
-From: Mathieu Westphal <mathieu.westphal@kitware.com>
-Date: Fri, 26 May 2023 14:27:28 +0200
-Subject: [PATCH] remove-custom-install
+From 35372adf6c4cb4b4b9ffe8b22573b59f289c3d3e Mon Sep 17 00:00:00 2001
+From: Antoine Gerschenfeld <antoine.gerschenfeld@cea.fr>
+Date: Fri, 7 Mar 2025 14:43:22 +0100
+Subject: [PATCH 2/7] remove-custom-install
 
 ---
  plugin/ParaViewPlugin/CMakeLists.txt | 6 ------
  1 file changed, 6 deletions(-)
 
-diff --git a/src/Plugins/MEDReader/plugin/ParaViewPlugin/CMakeLists.txt b/src/Plugins/MEDReader/plugin/ParaViewPlugin/CMakeLists.txt
-index 89fbd89..5fdad30 100644
---- a/src/Plugins/MEDReader/plugin/ParaViewPlugin/CMakeLists.txt
-+++ b/src/Plugins/MEDReader/plugin/ParaViewPlugin/CMakeLists.txt
-@@ -118,9 +118,3 @@ paraview_add_plugin(MEDReader
+diff --git a/plugin/ParaViewPlugin/CMakeLists.txt b/plugin/ParaViewPlugin/CMakeLists.txt
+index a530d31..49e19ab 100644
+--- a/plugin/ParaViewPlugin/CMakeLists.txt
++++ b/plugin/ParaViewPlugin/CMakeLists.txt
+@@ -121,9 +121,3 @@ paraview_add_plugin(MEDReader
    MODULES MEDReaderIO
    MODULE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/../MEDReaderIO/vtk.module"
    )
@@ -22,5 +22,5 @@ index 89fbd89..5fdad30 100644
 -  ARCHIVE DESTINATION lib/paraview
 -  )
 -- 
-2.40.1
+2.48.1
 
