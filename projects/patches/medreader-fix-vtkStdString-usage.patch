@@ -1,7 +1,19 @@
-diff --git a/src/Plugins/MEDReader/plugin/MEDLoaderForPV/ExtractGroupHelper.cxx b/src/Plugins/MEDReader/plugin/MEDLoaderForPV/ExtractGroupHelper.cxx
-index 7fb683d..59bd3dc 100644
---- a/src/Plugins/MEDReader/plugin/MEDLoaderForPV/ExtractGroupHelper.cxx
-+++ b/src/Plugins/MEDReader/plugin/MEDLoaderForPV/ExtractGroupHelper.cxx
+From 124836267a1ea19dc1dfc3bb5a8ee4347cdf83a8 Mon Sep 17 00:00:00 2001
+From: Antoine Gerschenfeld <antoine.gerschenfeld@cea.fr>
+Date: Fri, 7 Mar 2025 14:45:30 +0100
+Subject: [PATCH 5/7] Fix vtkStdString usage
+
+---
+ plugin/MEDLoaderForPV/ExtractGroupHelper.cxx       |  8 ++++----
+ .../ParaViewPlugin/pqExtractGroupFieldsWidget.cxx  |  4 ++--
+ plugin/ParaViewPlugin/pqMEDReaderFieldsWidget.cxx  | 14 +++++++-------
+ plugin/ParaViewPlugin/pqMEDReaderGraphUtils.cxx    |  6 +++---
+ 4 files changed, 16 insertions(+), 16 deletions(-)
+
+diff --git a/plugin/MEDLoaderForPV/ExtractGroupHelper.cxx b/plugin/MEDLoaderForPV/ExtractGroupHelper.cxx
+index fa241a1..8c3c92e 100644
+--- a/plugin/MEDLoaderForPV/ExtractGroupHelper.cxx
++++ b/plugin/MEDLoaderForPV/ExtractGroupHelper.cxx
 @@ -150,7 +150,7 @@ void ExtractGroupInternal::loadFrom(vtkMutableDirectedGraph *sil)
    while(it0->HasNext())
      {
@@ -37,10 +49,10 @@ index 7fb683d..59bd3dc 100644
            _fams.push_back(fam);
          }
        itFams->Delete();
-diff --git a/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqExtractGroupFieldsWidget.cxx b/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqExtractGroupFieldsWidget.cxx
-index 16f4d96..f1ac119 100644
---- a/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqExtractGroupFieldsWidget.cxx
-+++ b/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqExtractGroupFieldsWidget.cxx
+diff --git a/plugin/ParaViewPlugin/pqExtractGroupFieldsWidget.cxx b/plugin/ParaViewPlugin/pqExtractGroupFieldsWidget.cxx
+index d6390c7..eef6673 100644
+--- a/plugin/ParaViewPlugin/pqExtractGroupFieldsWidget.cxx
++++ b/plugin/ParaViewPlugin/pqExtractGroupFieldsWidget.cxx
 @@ -75,7 +75,7 @@ void pqExtractGroupFieldsWidget::loadTreeWidgetItems()
    vtkIdType mfg = tree->GetChild(root, 1); // MeshesFamsGrps
  
@@ -59,10 +71,10 @@ index 16f4d96..f1ac119 100644
      grpItem->setText(0, name);
  
      // Property Name
-diff --git a/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqMEDReaderFieldsWidget.cxx b/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqMEDReaderFieldsWidget.cxx
-index bd0f7d8..e1595ec 100644
---- a/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqMEDReaderFieldsWidget.cxx
-+++ b/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqMEDReaderFieldsWidget.cxx
+diff --git a/plugin/ParaViewPlugin/pqMEDReaderFieldsWidget.cxx b/plugin/ParaViewPlugin/pqMEDReaderFieldsWidget.cxx
+index a378522..5ff62e4 100644
+--- a/plugin/ParaViewPlugin/pqMEDReaderFieldsWidget.cxx
++++ b/plugin/ParaViewPlugin/pqMEDReaderFieldsWidget.cxx
 @@ -90,9 +90,9 @@ void pqMEDReaderFieldsWidget::loadTreeWidgetItems()
      vtkIdType tsId = tree->GetChild(fst, i - 1);
      pqTreeWidgetItemObject *ts = new pqTreeWidgetItemObject(this->TreeWidget, QStringList());
@@ -107,10 +119,10 @@ index bd0f7d8..e1595ec 100644
            }
          comsup->setData(0, Qt::ToolTipRole, comSupToolTipName);
  
-diff --git a/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqMEDReaderGraphUtils.cxx b/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqMEDReaderGraphUtils.cxx
-index 50c1b40..609c550 100644
---- a/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqMEDReaderGraphUtils.cxx
-+++ b/src/Plugins/MEDReader/plugin/ParaViewPlugin/pqMEDReaderGraphUtils.cxx
+diff --git a/plugin/ParaViewPlugin/pqMEDReaderGraphUtils.cxx b/plugin/ParaViewPlugin/pqMEDReaderGraphUtils.cxx
+index d1efdcf..67586f1 100644
+--- a/plugin/ParaViewPlugin/pqMEDReaderGraphUtils.cxx
++++ b/plugin/ParaViewPlugin/pqMEDReaderGraphUtils.cxx
 @@ -44,15 +44,15 @@ void getCurrentTS(vtkGraph* graph, vtkIdType id, QStringList& dts, QStringList&
      // Each Time Step
      // Recover step
@@ -130,3 +142,6 @@ index 50c1b40..609c550 100644
      }
  }
  
+-- 
+2.48.1
+

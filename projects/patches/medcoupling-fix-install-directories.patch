@@ -1,7 +1,7 @@
-From 5a9bce41dfaa394ecbb8d2b097c662d32b83dda0 Mon Sep 17 00:00:00 2001
+From 2ed787480d3c2565a0a5c082b1385f1d7ac7ac91 Mon Sep 17 00:00:00 2001
 From: Mathieu Westphal <mathieu.westphal@kitware.com>
 Date: Tue, 6 Jun 2023 14:04:11 +0200
-Subject: [PATCH] fix install directories
+Subject: [PATCH 3/3] fix install directories
 
 ---
  src/ICoCo/CMakeLists.txt         |  7 +++++--
@@ -12,7 +12,7 @@ Subject: [PATCH] fix install directories
  5 files changed, 29 insertions(+), 7 deletions(-)
 
 diff --git a/src/ICoCo/CMakeLists.txt b/src/ICoCo/CMakeLists.txt
-index 113b66dd..3c52c69a 100644
+index efcaeae4..ca11aa35 100644
 --- a/src/ICoCo/CMakeLists.txt
 +++ b/src/ICoCo/CMakeLists.txt
 @@ -26,7 +26,6 @@ IF(MEDCOUPLING_ENABLE_PYTHON)
@@ -37,10 +37,10 @@ index 113b66dd..3c52c69a 100644
  FILE(GLOB icoco_HEADERS_HXX "${CMAKE_CURRENT_SOURCE_DIR}/*.hxx"
                                    "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
 diff --git a/src/INTERP_KERNEL/CMakeLists.txt b/src/INTERP_KERNEL/CMakeLists.txt
-index bc07afc1..c3ec6bfc 100644
+index 421b0850..be968c0b 100644
 --- a/src/INTERP_KERNEL/CMakeLists.txt
 +++ b/src/INTERP_KERNEL/CMakeLists.txt
-@@ -88,7 +88,11 @@ ENDIF(NOT WIN32)
+@@ -89,7 +89,11 @@ ENDIF(NOT WIN32)
  ADD_LIBRARY(interpkernel ${interpkernel_SOURCES})
  SET_TARGET_PROPERTIES(interpkernel PROPERTIES COMPILE_FLAGS "${PLATFORM_MMAP}")
  TARGET_LINK_LIBRARIES(interpkernel ${PLATFORM_LIBS})
@@ -54,7 +54,7 @@ index bc07afc1..c3ec6bfc 100644
  FILE(GLOB_RECURSE interpkernel_HEADERS_HXX "${CMAKE_CURRENT_SOURCE_DIR}/*.hxx")
  FILE(GLOB_RECURSE interpkernel_HEADERS_TXX "${CMAKE_CURRENT_SOURCE_DIR}/*.txx")
 diff --git a/src/MEDCoupling/CMakeLists.txt b/src/MEDCoupling/CMakeLists.txt
-index 5bd1fccd..11c7d384 100644
+index 920f329a..8eae0b62 100644
 --- a/src/MEDCoupling/CMakeLists.txt
 +++ b/src/MEDCoupling/CMakeLists.txt
 @@ -88,11 +88,19 @@ SET(medcouplingremapper_SOURCES
@@ -80,10 +80,10 @@ index 5bd1fccd..11c7d384 100644
  FILE(GLOB medcoupling_HEADERS_HXX "${CMAKE_CURRENT_SOURCE_DIR}/*.hxx")
  FILE(GLOB medcoupling_HEADERS_TXX "${CMAKE_CURRENT_SOURCE_DIR}/*.txx")
 diff --git a/src/MEDLoader/CMakeLists.txt b/src/MEDLoader/CMakeLists.txt
-index 96e2a67c..ce5011bf 100644
+index 6fd50d9b..d68c0ec1 100644
 --- a/src/MEDLoader/CMakeLists.txt
 +++ b/src/MEDLoader/CMakeLists.txt
-@@ -94,7 +94,11 @@ SET(medloader_SOURCES
+@@ -95,7 +95,11 @@ SET(medloader_SOURCES
  ADD_LIBRARY(medloader ${medloader_SOURCES})
  SET_TARGET_PROPERTIES(medloader PROPERTIES COMPILE_FLAGS "")
  TARGET_LINK_LIBRARIES(medloader medcouplingcpp ${MEDFILE_C_LIBRARIES} ${HDF5_LIBRARIES} ${MEDLOADER_XDR_LIBRARIES})
@@ -97,7 +97,7 @@ index 96e2a67c..ce5011bf 100644
  FILE(GLOB medloader_HEADERS_HXX "${CMAKE_CURRENT_SOURCE_DIR}/*.hxx")
  FILE(GLOB medloader_HEADERS_TXX "${CMAKE_CURRENT_SOURCE_DIR}/*.txx")
 diff --git a/src/RENUMBER/CMakeLists.txt b/src/RENUMBER/CMakeLists.txt
-index a8347896..b03eb60c 100644
+index aa443753..55d5b162 100644
 --- a/src/RENUMBER/CMakeLists.txt
 +++ b/src/RENUMBER/CMakeLists.txt
 @@ -95,6 +95,9 @@ INSTALL(TARGETS renumber DESTINATION ${MEDCOUPLING_INSTALL_BINS})
@@ -112,5 +112,5 @@ index a8347896..b03eb60c 100644
  
  INSTALL(FILES ${renumbercpp_HEADERS_HXX} DESTINATION ${MEDCOUPLING_INSTALL_HEADERS})
 -- 
-2.40.1
+2.48.1
 

@@ -25,11 +25,9 @@ superbuild_add_project(medcoupling
    -DMEDCOUPLING_INSTALL_LIBS:PATH=lib
    -DSALOME_USE_MPI:BOOL=${mpi_enabled}
    -DMEDCOUPLING_MEDLOADER_USE_XDR:BOOL=OFF
+   -DMEDCOUPLING_USE_64BIT_IDS=OFF
    ${medcoupling_options}
 )
-
-superbuild_apply_patch(medcoupling fix-cmake-option-usage
-  "Fix incorrect usage of cmake dependent option")
 
 superbuild_apply_patch(medcoupling static-para-libs-windows-fix
   "Build para libs statically for Windows compatibility")

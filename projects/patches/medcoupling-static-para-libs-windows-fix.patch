@@ -1,7 +1,7 @@
-From 44fb92a85a4856056c9b6e7c1cf78431146de9da Mon Sep 17 00:00:00 2001
+From 8cd08a652aabb04e3856c8bf5b6196e325ba58c9 Mon Sep 17 00:00:00 2001
 From: Mathieu Westphal <mathieu.westphal@kitware.com>
 Date: Tue, 6 Jun 2023 13:32:57 +0200
-Subject: [PATCH] fix windows export
+Subject: [PATCH 2/3] fix windows export
 
 ---
  src/MEDLoader/MEDFileMeshLL.hxx    |  4 +++-
@@ -11,7 +11,7 @@ Subject: [PATCH] fix windows export
  4 files changed, 10 insertions(+), 8 deletions(-)
 
 diff --git a/src/MEDLoader/MEDFileMeshLL.hxx b/src/MEDLoader/MEDFileMeshLL.hxx
-index 38fe9b95..7e8baac6 100644
+index fc1ef22b..fc548c02 100644
 --- a/src/MEDLoader/MEDFileMeshLL.hxx
 +++ b/src/MEDLoader/MEDFileMeshLL.hxx
 @@ -21,6 +21,8 @@
@@ -33,7 +33,7 @@ index 38fe9b95..7e8baac6 100644
    public:
      MEDFileMeshL2();
 diff --git a/src/MEDLoader/MEDFileUtilities.hxx b/src/MEDLoader/MEDFileUtilities.hxx
-index e41e7820..087d3201 100644
+index 2a76b5f5..f96d6aa8 100644
 --- a/src/MEDLoader/MEDFileUtilities.hxx
 +++ b/src/MEDLoader/MEDFileUtilities.hxx
 @@ -31,12 +31,12 @@
@@ -55,7 +55,7 @@ index e41e7820..087d3201 100644
    public:
      AutoFid(med_idt fid);
 diff --git a/src/ParaMEDLoader/CMakeLists.txt b/src/ParaMEDLoader/CMakeLists.txt
-index cd87d14c..413eeb32 100644
+index e43503e8..e9345d83 100644
 --- a/src/ParaMEDLoader/CMakeLists.txt
 +++ b/src/ParaMEDLoader/CMakeLists.txt
 @@ -45,7 +45,7 @@ SET(paramedloader_SOURCES
@@ -68,10 +68,10 @@ index cd87d14c..413eeb32 100644
  INSTALL(TARGETS paramedloader EXPORT ${PROJECT_NAME}TargetGroup DESTINATION ${MEDCOUPLING_INSTALL_LIBS})
  
 diff --git a/src/ParaMEDMEM/CMakeLists.txt b/src/ParaMEDMEM/CMakeLists.txt
-index 511b1477..a2616c30 100644
+index 1a4d99b7..251c9320 100644
 --- a/src/ParaMEDMEM/CMakeLists.txt
 +++ b/src/ParaMEDMEM/CMakeLists.txt
-@@ -69,7 +69,7 @@ SET(paramedmem_SOURCES
+@@ -70,7 +70,7 @@ SET(paramedmem_SOURCES
    MPIAccess/MPIAccessDEC.cxx
  )
  
@@ -81,5 +81,5 @@ index 511b1477..a2616c30 100644
  INSTALL(TARGETS paramedmem EXPORT ${PROJECT_NAME}TargetGroup DESTINATION ${MEDCOUPLING_INSTALL_LIBS})
  
 -- 
-2.40.1
+2.48.1
 

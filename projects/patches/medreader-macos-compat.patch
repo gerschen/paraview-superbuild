@@ -1,7 +1,17 @@
-diff --git a/src/Plugins/MEDReader/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx b/src/Plugins/MEDReader/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx
-index 1b93ae4..a9156d1 100644
---- a/src/Plugins/MEDReader/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx
-+++ b/src/Plugins/MEDReader/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx
+From 4b781437a26825f9a211053de893dffbd2904f3d Mon Sep 17 00:00:00 2001
+From: Antoine Gerschenfeld <antoine.gerschenfeld@cea.fr>
+Date: Fri, 7 Mar 2025 14:46:24 +0100
+Subject: [PATCH 7/7] MEDReader MacOS compat
+
+---
+ plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx | 6 +++---
+ plugin/MEDReaderIO/VTKMEDTraits.hxx                      | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx b/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx
+index 463f0af..3189862 100644
+--- a/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx
++++ b/plugin/MEDLoaderForPV/MEDFileFieldRepresentationTree.cxx
 @@ -47,7 +47,7 @@
  #include "vtkDoubleArray.h"
  #include "vtkIntArray.h"
@@ -28,10 +38,10 @@ index 1b93ae4..a9156d1 100644
    typedef vtkLongLongArray VtkType;
  #else
    typedef vtkLongArray VtkType;
-diff --git a/src/Plugins/MEDReader/plugin/MEDReaderIO/VTKMEDTraits.hxx b/src/Plugins/MEDReader/plugin/MEDReaderIO/VTKMEDTraits.hxx
-index e34c34d..28ea86b 100644
---- a/src/Plugins/MEDReader/plugin/MEDReaderIO/VTKMEDTraits.hxx
-+++ b/src/Plugins/MEDReader/plugin/MEDReaderIO/VTKMEDTraits.hxx
+diff --git a/plugin/MEDReaderIO/VTKMEDTraits.hxx b/plugin/MEDReaderIO/VTKMEDTraits.hxx
+index 1807661..e420a41 100644
+--- a/plugin/MEDReaderIO/VTKMEDTraits.hxx
++++ b/plugin/MEDReaderIO/VTKMEDTraits.hxx
 @@ -23,7 +23,7 @@
  
  class vtkIntArray;
@@ -59,3 +69,6 @@ index e34c34d..28ea86b 100644
    typedef vtkLongLongArray VtkType;
  #else
    typedef vtkLongArray VtkType;
+-- 
+2.48.1
+
