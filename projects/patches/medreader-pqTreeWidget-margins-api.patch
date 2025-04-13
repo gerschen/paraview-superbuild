@@ -1,7 +1,7 @@
-From b08e7b092c6806f07c61c44f8d3ea14f9874ae11 Mon Sep 17 00:00:00 2001
+From 433a5a0fc8baa11333e2f3f0fee17da9b8b8a9ce Mon Sep 17 00:00:00 2001
 From: Antoine Gerschenfeld <antoine.gerschenfeld@cea.fr>
 Date: Fri, 7 Mar 2025 14:45:53 +0100
-Subject: [PATCH 6/7] pqTreeWidget margins API
+Subject: [PATCH 4/5] pqTreeWidget margins API
 
 ---
  plugin/ParaViewPlugin/pqAbstractFieldsWidget.cxx | 5 ++---

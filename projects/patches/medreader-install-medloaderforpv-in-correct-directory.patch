@@ -1,7 +1,7 @@
-From 41178ebad4822fbb7b2b2bd710ee1bc778394d80 Mon Sep 17 00:00:00 2001
+From 7f14e86ac997a8ec23ba05ccff8855033966e3e8 Mon Sep 17 00:00:00 2001
 From: Antoine Gerschenfeld <antoine.gerschenfeld@cea.fr>
 Date: Fri, 7 Mar 2025 14:42:38 +0100
-Subject: [PATCH 1/7] Fix MEDLoaderForPV install dirs
+Subject: [PATCH 1/5] Fix MEDLoaderForPV install dirs
 
 ---
  plugin/MEDLoaderForPV/CMakeLists.txt | 6 ++++--

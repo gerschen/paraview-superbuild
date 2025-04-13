@@ -1,7 +1,7 @@
-From 35372adf6c4cb4b4b9ffe8b22573b59f289c3d3e Mon Sep 17 00:00:00 2001
+From 37524398c40d74c6714f721db10af5c2eaf7c9d3 Mon Sep 17 00:00:00 2001
 From: Antoine Gerschenfeld <antoine.gerschenfeld@cea.fr>
 Date: Fri, 7 Mar 2025 14:43:22 +0100
-Subject: [PATCH 2/7] remove-custom-install
+Subject: [PATCH 2/5] remove-custom-install
 
 ---
  plugin/ParaViewPlugin/CMakeLists.txt | 6 ------

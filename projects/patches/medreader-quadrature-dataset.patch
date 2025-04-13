@@ -1,43 +1,39 @@
-From 31af8e665577ccd1ab2927e9669da5802eb6b426 Mon Sep 17 00:00:00 2001
+From 18a98d76aaaa745cc99d05216538e2cc9a9b85ea Mon Sep 17 00:00:00 2001
 From: Antoine Gerschenfeld <antoine.gerschenfeld@cea.fr>
 Date: Fri, 7 Mar 2025 14:44:51 +0100
-Subject: [PATCH 4/7] Fix quadrature datasets
+Subject: [PATCH 3/5] Fix quadrature datasets
 
 ---
- plugin/MEDReaderIO/vtkELNOFilter.h                     | 3 +++
- plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx | 5 +++--
+ plugin/MEDReaderIO/vtkELNOFilter.h                     | 1 +
+ plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx | 3 ++-
  plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.h   | 2 +-
- 3 files changed, 7 insertions(+), 3 deletions(-)
+ 3 files changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/plugin/MEDReaderIO/vtkELNOFilter.h b/plugin/MEDReaderIO/vtkELNOFilter.h
-index d03ef9d..0af4298 100644
+index 8d9200e..0af4298 100644
 --- a/plugin/MEDReaderIO/vtkELNOFilter.h
 +++ b/plugin/MEDReaderIO/vtkELNOFilter.h
-@@ -22,6 +22,9 @@
+@@ -22,6 +22,7 @@
  
  #include "vtkQuadraturePointsGenerator.h"
  
 +class vtkUnstructuredGrid;
-+class vtkCellData;
-+
+ class vtkCellData;
+ 
  class VTK_EXPORT vtkELNOFilter: public vtkQuadraturePointsGenerator
- {
- public:
 diff --git a/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx b/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx
-index cbcecc5..32c24c5 100644
+index 7b42517..482e099 100644
 --- a/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx
 +++ b/plugin/MEDReaderIO/vtkMEDQuadraturePointsGenerator.cxx
-@@ -26,7 +26,8 @@
- #include <vtkObjectFactory.h>
- #include <vtkInformation.h>
- #include <vtkInformationVector.h>
--#include <vtkUnstructuredGrid.h>
+@@ -23,6 +23,7 @@
+ #include "MEDFileFieldRepresentationTree.hxx"
+ 
+ //VTK includes
 +#include <vtkDataSet.h>
-+#include <vtkPolyData.h>
  #include <vtkCellData.h>
- #include <vtkPointData.h>
+ #include <vtkInformation.h>
  #include <vtkInformationQuadratureSchemeDefinitionVectorKey.h>
-@@ -61,7 +62,7 @@ int vtkMEDQuadraturePointsGenerator::RequestData(
+@@ -62,7 +63,7 @@ int vtkMEDQuadraturePointsGenerator::RequestData(
    
    // Get the input.
    tmpDataObj = input[0]->GetInformationObject(0)->Get(vtkDataObject::DATA_OBJECT());

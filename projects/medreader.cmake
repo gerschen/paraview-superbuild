@@ -36,14 +36,8 @@ superbuild_apply_patch(medreader install-medloaderforpv-in-correct-directory
 superbuild_apply_patch(medreader remove-custom-install
   "Remove custom installation")
 
-superbuild_apply_patch(medreader add-missing-VTK-module-depends
-  "Add a missing VTK module dependency")
-
 superbuild_apply_patch(medreader quadrature-dataset
   "Update quadrature point generation")
-
-superbuild_apply_patch(medreader fix-vtkStdString-usage
-  "Fix vtkStdString usage")
 
 superbuild_apply_patch(medreader pqTreeWidget-margins-api
   "Fix pqTreeWidget deprecated margin API usage")
