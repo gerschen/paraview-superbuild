@@ -156,6 +156,7 @@ The following packages enable other features within ParaView:
     ParaView filters and algorithms.
   * `visitbridge`: Enables readers for file formats provided from the VisIt
     project.
+  * `viskores`: Viskores Filters
   * `vortexfinder2`: A collection of tools to visualize and analyze vortices.
   * `vrpn`: Virtual reality support through the VRPN interface.
   * `vtkm`: VTK-m Accelerator Filters
