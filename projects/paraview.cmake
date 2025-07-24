@@ -367,7 +367,6 @@ superbuild_add_project(paraview
     # vtkm
     -DPARAVIEW_PLUGIN_ENABLE_VTKmFilters:BOOL=${vtkm_enabled}
     -DPARAVIEW_USE_VTKM:BOOL=${vtkm_enabled}
-    -DVTK_VTKM_ENABLE_CUDA:BOOL=${paraview_enable_cuda}
 
     # Web
     -DPARAVIEW_ENABLE_WEB:BOOL=${paraviewweb_enabled}
