@@ -178,6 +178,7 @@ function (superbuild_find_projects var)
     ttk
     tbb
     visitbridge
+    viskores
     vortexfinder2
     vrpn
     vtkm

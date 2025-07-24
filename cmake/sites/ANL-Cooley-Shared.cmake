@@ -34,6 +34,7 @@ set(ENABLE_python      ON CACHE BOOL "")
 set(ENABLE_silo        ON CACHE BOOL "")
 set(ENABLE_visitbridge ON CACHE BOOL "")
 set(ENABLE_vtkm        OFF CACHE BOOL "")
+set(ENABLE_viskores    OFF CACHE BOOL "")
 set(ENABLE_xdmf3       ON CACHE BOOL "")
 set(ENABLE_zlib        ON CACHE BOOL "")
 
