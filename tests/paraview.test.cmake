@@ -312,8 +312,8 @@ if (medreader_enabled)
     "--test-baseline=${CMAKE_CURRENT_LIST_DIR}/baselines/LoadMEDReaderPlugin.png")
 endif ()
 
-# vtk-m tests
-if (vtkm_enabled)
+# viskores tests
+if (viskores_enabled)
   paraview_add_ui_test("vtkm-contour" "VTKmContour"
     --test-plugin=VTKmFilters)
   paraview_add_ui_test("vtkm-gradient" "VTKmGradient"

@@ -28,7 +28,7 @@ if (tbb_enabled)
 endif ()
 
 set(paraview_enable_cuda "OFF")
-if(vtkm_enabled AND cuda_enabled)
+if(viskores_enabled AND cuda_enabled)
   set(paraview_enable_cuda "ON")
 endif()
 
@@ -259,7 +259,7 @@ superbuild_add_project(paraview
   DEPENDS_OPTIONAL
     adios2 alembic catalyst cuda boost eigen gdal hdf5 matplotlib mpi numpy pdal png
     protobuf python3 qt qt5 qt6 visitbridge zlib silo las lookingglass pythonmpi4py
-    xdmf3 vrpn vtkm netcdf
+    xdmf3 vrpn viskores netcdf
     cdi
     openturns
     openmp
@@ -276,6 +276,8 @@ superbuild_add_project(paraview
     occt
     libxslt
     ${PARAVIEW_EXTERNAL_PROJECTS}
+  DEPENDS_ORDERED
+    vtkm
   CMAKE_ARGS
     -DCMAKE_INSTALL_LIBDIR:PATH=lib
     -DCMAKE_INSTALL_NAME_DIR:PATH=<INSTALL_DIR>/lib
@@ -364,9 +366,10 @@ superbuild_add_project(paraview
     -DPARAVIEW_PLUGIN_ENABLE_CAVEInteraction:BOOL=${PARAVIEW_ENABLE_CAVEInteraction}
     -DPARAVIEW_PLUGIN_CAVEInteraction_USE_VRPN:BOOL=${vrpn_enabled}
 
-    # vtkm
-    -DPARAVIEW_PLUGIN_ENABLE_VTKmFilters:BOOL=${vtkm_enabled}
+    # viskores
+    -DPARAVIEW_PLUGIN_ENABLE_VTKmFilters:BOOL=${viskores_enabled}
     -DPARAVIEW_USE_VTKM:BOOL=${vtkm_enabled}
+    -DPARAVIEW_USE_VISKORES:BOOL=${viskores_enabled}
 
     # Web
     -DPARAVIEW_ENABLE_WEB:BOOL=${paraviewweb_enabled}

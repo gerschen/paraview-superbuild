@@ -159,7 +159,6 @@ The following packages enable other features within ParaView:
   * `viskores`: Viskores Filters
   * `vortexfinder2`: A collection of tools to visualize and analyze vortices.
   * `vrpn`: Virtual reality support through the VRPN interface.
-  * `vtkm`: VTK-m Accelerator Filters
   * `xdmf3`: A meta file format built on top of HDF5.
 
 ## Offline builds
